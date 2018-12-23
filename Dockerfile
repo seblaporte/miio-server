@@ -8,6 +8,7 @@ RUN pip3 install -U setuptools virtualenv
 WORKDIR /usr/share
 
 RUN git clone https://github.com/mrin/domoticz-mirobot-plugin.git xiaomi-mirobot && \
+    git checkout tags/0.1.3 && \
     cd /usr/share/xiaomi-mirobot && \
     virtualenv -p python3 .env && \
     . /usr/share/xiaomi-mirobot/.env/bin/activate && \
