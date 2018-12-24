@@ -2,7 +2,12 @@ FROM resin/rpi-raspbian:stretch
 
 RUN [ "cross-build-start" ]
 
-RUN apt-get update && apt-get install -y python3 python3-dev python3-pip libffi-dev libssl-dev git
+RUN apt-get update && \
+    apt-get install -y python3 python3-dev python3-pip \
+    libffi-dev libssl-dev \
+    git && \
+    rm -rf /var/lib/apt/lists/*
+
 RUN pip3 install -U setuptools virtualenv
 
 WORKDIR /usr/share
